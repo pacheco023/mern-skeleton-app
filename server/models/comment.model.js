@@ -7,8 +7,19 @@ const  CommentSchema = new mongoose.Schema([{
         required: 'text required'
     },
 
+    post: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Post'
+    },
+
+    user: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'User'
+    },
+
+
     salt: String,
-  user: {type: mongoose.Schema.ObjectId, ref: 'User'}
+  like: {type: mongoose.Schema.ObjectId, ref: 'User'}
 }]);
 
-export default mongoose.model('Comment', CommentSchema);
+export default mongoose.model('Comment', CommentSchema);  

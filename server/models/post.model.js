@@ -25,9 +25,16 @@ const PostSchema = new mongoose.Schema([{
         type: mongoose.Schema.ObjectId,
         ref: 'User'
     },
+
+    comment: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+        required: 'Comment is required'
+    },
+
     salt: String,
     like:[{type: mongoose.Schema.ObjectId,ref: 'User'}],
-    comment:[{type: mongoose.Schema.ObjectId,ref: 'post'}]
+    comment:[{type: mongoose.Schema.ObjectId,ref: 'User'}]
 }]);
 
 

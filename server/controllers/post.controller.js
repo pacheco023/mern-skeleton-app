@@ -146,7 +146,7 @@ const defaultPhoto = (req,res)=>{
         {$pull: {likes:req.body.userId}},
         {new:true}
       )
-      .populate('likes', '_id description')
+      .populate('likes', '_id name')
       .populate('comment', '_id text')
       .exec();
       res.json(result);
@@ -161,7 +161,7 @@ const defaultPhoto = (req,res)=>{
     try{
       const result = await Post.findByIdAndUpdate(
         req.body,postId,
-        {$pull: {Comment:req.body.userld}});
+        {$pull: {Comment:req.body.userId}});
         next();
     }catch(err){
         return res.status(400).json({
